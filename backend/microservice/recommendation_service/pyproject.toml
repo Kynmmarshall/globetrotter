@@ -1,0 +1,28 @@
+[project]
+name = "globetrotter-recommendation-service"
+version = "0.1.0"
+description = "GlobeTrotter Phase 2 Recommendation Service: destination catalogue, recommendations, and directions."
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115,<1.0",
+    "uvicorn[standard]>=0.30,<1.0",
+    "pydantic>=2.7,<3.0",
+    "pydantic-settings>=2.3,<3.0",
+    "pyjwt[crypto]>=2.9,<3.0",
+    "aio-pika>=9.4,<10.0",
+    "httpx>=0.27,<1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2,<9.0",
+    "pytest-asyncio>=0.24,<1.0",
+    "anyio>=4.4,<5.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.setuptools.packages.find]
+include = ["app*"]

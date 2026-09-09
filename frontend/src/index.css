@@ -1,0 +1,163 @@
+@import "tailwindcss";
+@import "@fontsource/sora/600.css";
+@import "@fontsource/sora/700.css";
+@import "@fontsource/manrope/400.css";
+@import "@fontsource/manrope/500.css";
+@import "@fontsource/manrope/600.css";
+
+@theme {
+  --color-canvas: #f6f8fa;
+  --color-surface: #ffffff;
+  --color-ink: #182321;
+  --color-primary: #087f6d;
+  --color-primary-dark: #06695b;
+  --color-coral: #f26b5b;
+  --color-mango: #ffb547;
+  --color-route-blue: #3d66db;
+  --color-border: #dce3e4;
+
+  --font-heading: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-fade-up: fade-up 0.3s ease-out both;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    letter-spacing: 0;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-route-blue);
+    outline-offset: 2px;
+  }
+}
+
+/* Ambient animated backdrop: soft, slowly drifting colour blobs behind every
+   screen (see PROJECT_PLAN.md section 9's animation plan), instead of a flat
+   white/canvas page. Lives on body::before (position: fixed, negative
+   z-index) so it never affects layout or scrolling and shows through any
+   page/shell wrapper that doesn't paint its own opaque background. Disabled
+   for prefers-reduced-motion by the blanket rule below. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  /* Each layer needs an explicit background-size smaller than the viewport:
+     without one, "auto" sizing makes a radial-gradient fill the ENTIRE
+     background box, which both mutes every blob into one flat wash of grey
+     and makes animating background-position invisible (a same-size tile
+     can't visibly "move"). */
+  background-image:
+    radial-gradient(rgb(8 127 109 / 0.42), transparent 62%),
+    radial-gradient(rgb(242 107 91 / 0.38), transparent 62%),
+    radial-gradient(rgb(255 181 71 / 0.34), transparent 62%),
+    radial-gradient(rgb(61 102 219 / 0.32), transparent 62%);
+  background-size:
+    46vmin 46vmin,
+    40vmin 40vmin,
+    52vmin 52vmin,
+    42vmin 42vmin;
+  background-repeat: no-repeat;
+  background-position:
+    6% 12%,
+    94% 8%,
+    10% 94%,
+    92% 88%;
+  filter: blur(6px);
+  animation: aurora-drift 42s ease-in-out infinite;
+}
+
+@keyframes aurora-drift {
+  0%,
+  100% {
+    background-position:
+      6% 12%,
+      94% 8%,
+      10% 94%,
+      92% 88%;
+  }
+  50% {
+    background-position:
+      18% 28%,
+      80% 24%,
+      28% 80%,
+      74% 90%;
+  }
+}
+
+/* Small floating "bokeh" particles (rendered by AnimatedBackground.tsx) that
+   rise from the bottom of the viewport and fade out near the top, each with
+   its own size/colour/speed so multiple are visibly moving at once. */
+.particle {
+  position: absolute;
+  bottom: -5%;
+  border-radius: 9999px;
+  opacity: 0;
+  animation-name: particle-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.7);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(18px, -55vh, 0) scale(1);
+  }
+  88% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate3d(-12px, -112vh, 0) scale(0.7);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Leaflet needs an explicit height on its container. */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-body);
+}

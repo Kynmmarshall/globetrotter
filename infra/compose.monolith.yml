@@ -1,0 +1,28 @@
+# Standalone Phase 1 monolith demonstration -- a single FastAPI process
+# backed by a JSON file, run independently of the microservices stack (see
+# infra/compose.microservices.yml). Not started by default.
+#
+#   docker compose -f infra/compose.monolith.yml up -d --build
+#
+# The monolith's own JSON file persists to a named volume so restarting the
+# container does not lose demo data.
+
+name: globetrotter-monolith
+
+services:
+  monolith:
+    build:
+      context: ../backend/monolith
+    restart: unless-stopped
+    ports:
+      - "${MONOLITH_PORT:-8000}:8000"
+    volumes:
+      - monolith_data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  monolith_data:

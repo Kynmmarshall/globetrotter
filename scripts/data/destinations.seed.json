@@ -1,0 +1,152 @@
+{
+  "_comment": "Canonical destination catalogue seed. Coordinates are PROVISIONAL placeholders around central Yaounde (3.8480N, 11.5021E) with small deterministic offsets so the map/routing UI has realistic-looking positions.",
+  "city": "Yaounde",
+  "country": "Cameroon",
+  "currency": "XAF",
+  "timezone": "Africa/Douala",
+  "destinations": [
+    {
+      "id": "dst-basilica",
+      "slug": "basilica",
+      "source_image": "basilica.png",
+      "name": "Basilica",
+      "category": "heritage",
+      "lat": 3.8531,
+      "lng": 11.5083,
+      "tags": ["religious-site", "architecture"],
+      "description": "A Catholic basilica in Yaounde."
+    },
+    {
+      "id": "dst-bois-debene",
+      "slug": "bois_d_ebene",
+      "source_image": "bois_d'ebene.jpg",
+      "name": "Bois d'Ebene",
+      "category": "nature",
+      "lat": 3.8602,
+      "lng": 11.5210,
+      "tags": ["park", "green-space"],
+      "description": "A green, wooded area in Yaounde."
+    },
+    {
+      "id": "dst-bois-saint-anastasie",
+      "slug": "bois_saint_anastasie",
+      "source_image": "bois_saint_anastasie.jpg",
+      "name": "Bois Saint Anastasie",
+      "category": "nature",
+      "lat": 3.8394,
+      "lng": 11.4958,
+      "tags": ["park", "green-space"],
+      "description": "A green/wooded area in Yaounde."
+    },
+    {
+      "id": "dst-cathedrale-notre-dame",
+      "slug": "cathedrale_notre_dame_des_victoires",
+      "source_image": "cathedrale_notre_dame_des_victoires.jpg",
+      "name": "Cathedrale Notre-Dame des Victoires",
+      "category": "heritage",
+      "lat": 3.8667,
+      "lng": 11.5144,
+      "tags": ["religious-site", "architecture", "landmark"],
+      "description": "A Catholic cathedral in Yaounde."
+    },
+    {
+      "id": "dst-club-golf-yaounde",
+      "slug": "club_de_golf_yaounde",
+      "source_image": "club_de_golf_yaounde.jpg",
+      "name": "Club de Golf de Yaounde",
+      "category": "recreation",
+      "lat": 3.8814,
+      "lng": 11.5063,
+      "tags": ["sport", "golf", "leisure"],
+      "description": "A golf club in Yaounde."
+    },
+    {
+      "id": "dst-hilton-hotel",
+      "slug": "hilton_hotel",
+      "source_image": "hilton_hotel.jpg",
+      "name": "Hilton Hotel Yaounde",
+      "category": "stay",
+      "lat": 3.8656,
+      "lng": 11.5183,
+      "tags": ["hotel", "stay"],
+      "description": "A hotel in central Yaounde. Rates and booking details are not tracked by this app; use the hotel's own channels to book."
+    },
+    {
+      "id": "dst-hotel-la-falaise",
+      "slug": "hotel_la_falaise",
+      "source_image": "hotel_la_falaise.jpg",
+      "name": "Hotel La Falaise",
+      "category": "stay",
+      "lat": 3.8489,
+      "lng": 11.4877,
+      "tags": ["hotel", "stay"],
+      "description": "A hotel in Yaounde. Rates and booking details are not tracked by this app; use the hotel's own channels to book."
+    },
+    {
+      "id": "dst-lhybride-restaurant",
+      "slug": "l_hybride_restaurant",
+      "source_image": "l'hybride_restaurant.jpg",
+      "name": "L'Hybride Restaurant",
+      "category": "food",
+      "lat": 3.8721,
+      "lng": 11.5225,
+      "tags": ["restaurant", "food"],
+      "description": "A restaurant in Yaounde."
+    },
+    {
+      "id": "dst-lac-municipal",
+      "slug": "lac_municipal",
+      "source_image": "Lac_Municipal.jpg",
+      "name": "Lac Municipal",
+      "category": "nature",
+      "lat": 3.8592,
+      "lng": 11.5241,
+      "tags": ["lake", "park", "outdoors"],
+      "description": "A municipal lake and surrounding green space in Yaounde."
+    },
+    {
+      "id": "dst-le-safoutier",
+      "slug": "le_safoutier",
+      "source_image": "le_safoutier.jpg",
+      "name": "Le Safoutier",
+      "category": "food",
+      "lat": 3.8548,
+      "lng": 11.5019,
+      "tags": ["restaurant", "food"],
+      "description": "A restaurant in Yaounde, likely serving local cuisine based on the name."
+    },
+    {
+      "id": "dst-reunification-monument",
+      "slug": "reunification_monument",
+      "source_image": "reunification_monument.png",
+      "name": "Monument de la Reunification",
+      "category": "heritage",
+      "lat": 3.8730,
+      "lng": 11.5158,
+      "tags": ["monument", "landmark", "history"],
+      "description": "A national monument commemorating the reunification of Cameroon."
+    },
+    {
+      "id": "dst-stade-paul-biya",
+      "slug": "stade_paul_biya",
+      "source_image": "Stade_Paul_Biya.jpg",
+      "name": "Stade Paul Biya",
+      "category": "sport",
+      "lat": 3.9436,
+      "lng": 11.4747,
+      "tags": ["stadium", "sport"],
+      "description": "A stadium near Yaounde (Olembe area). Event schedules and ticketing are not tracked by this app."
+    },
+    {
+      "id": "dst-statue-charles-atangana",
+      "slug": "statue_de_charles_atangana",
+      "source_image": "statue_de_charles_atangana.jpg",
+      "name": "Statue de Charles Atangana",
+      "category": "heritage",
+      "lat": 3.8675,
+      "lng": 11.5099,
+      "tags": ["statue", "landmark", "history"],
+      "description": "A statue honoring Charles Atangana in Yaounde."
+    }
+  ]
+}

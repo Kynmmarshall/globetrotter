@@ -1,0 +1,141 @@
+# Full microservices stack: RabbitMQ, the three FastAPI services, and the
+# Nginx API gateway. Each service persists its own JSON data file to a named
+# volume (see backend/microservice/*/app/store.py) -- there is no database
+# container here. The frontend is proxied by the gateway at "/" once it
+# exists (see backend/microservice/gateway/nginx.conf); until then requests
+# to "/" will fail while the API routes under /api/v1 and /ws work normally.
+#
+#   docker compose --env-file .env -f infra/compose.microservices.yml up -d --build
+#
+# The gateway is the ONLY container that publishes a port to the host
+# (${GATEWAY_PORT:-8080}); app services are reachable only on the internal
+# Docker network, matching "only the gateway is public" in PROJECT_PLAN.md.
+
+name: globetrotter
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-globetrotter}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-change-me-in-local-env}
+    ports:
+      - "${RABBITMQ_PORT:-5672}:5672"
+      - "${RABBITMQ_MANAGEMENT_PORT:-15672}:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  user-service:
+    build:
+      context: ../backend/microservice/user_service
+    restart: unless-stopped
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USER: ${RABBITMQ_USER:-globetrotter}
+      RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD:-change-me-in-local-env}
+      JWT_PRIVATE_KEY_PATH: /run/secrets/jwt_private_key.pem
+      JWT_PUBLIC_KEY_PATH: /run/secrets/jwt_public_key.pem
+      JWT_ISSUER: ${JWT_ISSUER:-globetrotter-user-service}
+      JWT_ACCESS_TOKEN_MINUTES: ${JWT_ACCESS_TOKEN_MINUTES:-15}
+      JWT_REFRESH_TOKEN_DAYS: ${JWT_REFRESH_TOKEN_DAYS:-30}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      COOKIE_DOMAIN: ${COOKIE_DOMAIN:-localhost}
+      CORS_ORIGINS: '["http://localhost:${GATEWAY_PORT:-8090}", "http://localhost:5173"]'
+    volumes:
+      # Only the User Service actually needs the private key (it signs
+      # tokens); mounting the whole folder read-only to all three services
+      # is a dev-time simplification -- see PROJECT_PLAN.md section 13.
+      - ../infra/keys:/run/secrets:ro
+      - user_service_data:/srv/app/data
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8001/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  recommendation-service:
+    build:
+      context: ../backend/microservice/recommendation_service
+    restart: unless-stopped
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USER: ${RABBITMQ_USER:-globetrotter}
+      RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD:-change-me-in-local-env}
+      JWT_PUBLIC_KEY_PATH: /run/secrets/jwt_public_key.pem
+      JWT_ISSUER: ${JWT_ISSUER:-globetrotter-user-service}
+      OSRM_BASE_URL: ${OSRM_BASE_URL:-https://router.project-osrm.org}
+      CORS_ORIGINS: '["http://localhost:${GATEWAY_PORT:-8090}", "http://localhost:5173"]'
+    volumes:
+      - ../infra/keys:/run/secrets:ro
+      - recommendation_service_data:/srv/app/data
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8002/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  itinerary-service:
+    build:
+      context: ../backend/microservice/itinerary_service
+    restart: unless-stopped
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USER: ${RABBITMQ_USER:-globetrotter}
+      RABBITMQ_PASSWORD: ${RABBITMQ_PASSWORD:-change-me-in-local-env}
+      JWT_PUBLIC_KEY_PATH: /run/secrets/jwt_public_key.pem
+      JWT_ISSUER: ${JWT_ISSUER:-globetrotter-user-service}
+      RECOMMENDATION_SERVICE_BASE_URL: http://recommendation-service:8002
+      CORS_ORIGINS: '["http://localhost:${GATEWAY_PORT:-8090}", "http://localhost:5173"]'
+    volumes:
+      - ../infra/keys:/run/secrets:ro
+      - itinerary_service_data:/srv/app/data
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      recommendation-service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8003/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  gateway:
+    build:
+      context: ../backend/microservice/gateway
+    restart: unless-stopped
+    ports:
+      - "${GATEWAY_PORT:-8090}:80"
+    depends_on:
+      - user-service
+      - recommendation-service
+      - itinerary-service
+      - frontend
+
+  frontend:
+    build:
+      context: ../frontend
+    restart: unless-stopped
+    volumes:
+      - ../frontend/src:/app/src
+      - ../frontend/public:/app/public
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+
+volumes:
+  user_service_data:
+  recommendation_service_data:
+  itinerary_service_data:

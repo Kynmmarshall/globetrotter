@@ -1,0 +1,514 @@
+[
+  {
+    "id": "dst-basilica",
+    "slug": "basilica",
+    "source_image": "basilica.png",
+    "name": "Basilica",
+    "category": "heritage",
+    "lat": 3.8531,
+    "lng": 11.5083,
+    "tags": [
+      "religious-site",
+      "architecture"
+    ],
+    "description": "A Catholic basilica in Yaounde.",
+    "city": "Yaounde",
+    "country": "Cameroon",
+    "currency": "XAF",
+    "timezone": "Africa/Douala",
+    "image": {
+      "alt": "Basilica in Yaounde, Cameroon",
+      "primary": "/static/destinations/basilica-960.webp",
+      "variants": [
+        {
+          "width": 480,
+          "height": 360,
+          "path": "/static/destinations/basilica-480.webp"
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "path": "/static/destinations/basilica-960.webp"
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "path": "/static/destinations/basilica-1440.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dst-bois-debene",
+    "slug": "bois_d_ebene",
+    "source_image": "bois_d'ebene.jpg",
+    "name": "Bois d'Ebene",
+    "category": "nature",
+    "lat": 3.8602,
+    "lng": 11.521,
+    "tags": [
+      "park",
+      "green-space"
+    ],
+    "description": "A green, wooded area in Yaounde.",
+    "city": "Yaounde",
+    "country": "Cameroon",
+    "currency": "XAF",
+    "timezone": "Africa/Douala",
+    "image": {
+      "alt": "Bois d'Ebene in Yaounde, Cameroon",
+      "primary": "/static/destinations/bois_d_ebene-960.webp",
+      "variants": [
+        {
+          "width": 480,
+          "height": 270,
+          "path": "/static/destinations/bois_d_ebene-480.webp"
+        },
+        {
+          "width": 960,
+          "height": 540,
+          "path": "/static/destinations/bois_d_ebene-960.webp"
+        },
+        {
+          "width": 1344,
+          "height": 756,
+          "path": "/static/destinations/bois_d_ebene-1440.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dst-bois-saint-anastasie",
+    "slug": "bois_saint_anastasie",
+    "source_image": "bois_saint_anastasie.jpg",
+    "name": "Bois Saint Anastasie",
+    "category": "nature",
+    "lat": 3.8394,
+    "lng": 11.4958,
+    "tags": [
+      "park",
+      "green-space"
+    ],
+    "description": "A green/wooded area in Yaounde.",
+    "city": "Yaounde",
+    "country": "Cameroon",
+    "currency": "XAF",
+    "timezone": "Africa/Douala",
+    "image": {
+      "alt": "Bois Saint Anastasie in Yaounde, Cameroon",
+      "primary": "/static/destinations/bois_saint_anastasie-960.webp",
+      "variants": [
+        {
+          "width": 480,
+          "height": 278,
+          "path": "/static/destinations/bois_saint_anastasie-480.webp"
+        },
+        {
+          "width": 960,
+          "height": 555,
+          "path": "/static/destinations/bois_saint_anastasie-960.webp"
+        },
+        {
+          "width": 1091,
+          "height": 631,
+          "path": "/static/destinations/bois_saint_anastasie-1440.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dst-cathedrale-notre-dame",
+    "slug": "cathedrale_notre_dame_des_victoires",
+    "source_image": "cathedrale_notre_dame_des_victoires.jpg",
+    "name": "Cathedrale Notre-Dame des Victoires",
+    "category": "heritage",
+    "lat": 3.8667,
+    "lng": 11.5144,
+    "tags": [
+      "religious-site",
+      "architecture",
+      "landmark"
+    ],
+    "description": "A Catholic cathedral in Yaounde.",
+    "city": "Yaounde",
+    "country": "Cameroon",
+    "currency": "XAF",
+    "timezone": "Africa/Douala",
+    "image": {
+      "alt": "Cathedrale Notre-Dame des Victoires in Yaounde, Cameroon",
+      "primary": "/static/destinations/cathedrale_notre_dame_des_victoires-960.webp",
+      "variants": [
+        {
+          "width": 480,
+          "height": 294,
+          "path": "/static/destinations/cathedrale_notre_dame_des_victoires-480.webp"
+        },
+        {
+          "width": 960,
+          "height": 589,
+          "path": "/static/destinations/cathedrale_notre_dame_des_victoires-960.webp"
+        },
+        {
+          "width": 1172,
+          "height": 719,
+          "path": "/static/destinations/cathedrale_notre_dame_des_victoires-1440.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dst-club-golf-yaounde",
+    "slug": "club_de_golf_yaounde",
+    "source_image": "club_de_golf_yaounde.jpg",
+    "name": "Club de Golf de Yaounde",
+    "category": "recreation",
+    "lat": 3.8814,
+    "lng": 11.5063,
+    "tags": [
+      "sport",
+      "golf",
+      "leisure"
+    ],
+    "description": "A golf club in Yaounde.",
+    "city": "Yaounde",
+    "country": "Cameroon",
+    "currency": "XAF",
+    "timezone": "Africa/Douala",
+    "image": {
+      "alt": "Club de Golf de Yaounde in Yaounde, Cameroon",
+      "primary": "/static/destinations/club_de_golf_yaounde-960.webp",
+      "variants": [
+        {
+          "width": 480,
+          "height": 255,
+          "path": "/static/destinations/club_de_golf_yaounde-480.webp"
+        },
+        {
+          "width": 960,
+          "height": 511,
+          "path": "/static/destinations/club_de_golf_yaounde-960.webp"
+        },
+        {
+          "width": 1400,
+          "height": 745,
+          "path": "/static/destinations/club_de_golf_yaounde-1440.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dst-hilton-hotel",
+    "slug": "hilton_hotel",
+    "source_image": "hilton_hotel.jpg",
+    "name": "Hilton Hotel Yaounde",
+    "category": "stay",
+    "lat": 3.8656,
+    "lng": 11.5183,
+    "tags": [
+      "hotel",
+      "stay"
+    ],
+    "description": "A hotel in central Yaounde. Rates and booking details are not tracked by this app; use the hotel's own channels to book.",
+    "city": "Yaounde",
+    "country": "Cameroon",
+    "currency": "XAF",
+    "timezone": "Africa/Douala",
+    "image": {
+      "alt": "Hilton Hotel Yaounde in Yaounde, Cameroon",
+      "primary": "/static/destinations/hilton_hotel-960.webp",
+      "variants": [
+        {
+          "width": 480,
+          "height": 384,
+          "path": "/static/destinations/hilton_hotel-480.webp"
+        },
+        {
+          "width": 618,
+          "height": 495,
+          "path": "/static/destinations/hilton_hotel-960.webp"
+        },
+        {
+          "width": 618,
+          "height": 495,
+          "path": "/static/destinations/hilton_hotel-1440.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dst-hotel-la-falaise",
+    "slug": "hotel_la_falaise",
+    "source_image": "hotel_la_falaise.jpg",
+    "name": "Hotel La Falaise",
+    "category": "stay",
+    "lat": 3.8489,
+    "lng": 11.4877,
+    "tags": [
+      "hotel",
+      "stay"
+    ],
+    "description": "A hotel in Yaounde. Rates and booking details are not tracked by this app; use the hotel's own channels to book.",
+    "city": "Yaounde",
+    "country": "Cameroon",
+    "currency": "XAF",
+    "timezone": "Africa/Douala",
+    "image": {
+      "alt": "Hotel La Falaise in Yaounde, Cameroon",
+      "primary": "/static/destinations/hotel_la_falaise-960.webp",
+      "variants": [
+        {
+          "width": 480,
+          "height": 320,
+          "path": "/static/destinations/hotel_la_falaise-480.webp"
+        },
+        {
+          "width": 547,
+          "height": 365,
+          "path": "/static/destinations/hotel_la_falaise-960.webp"
+        },
+        {
+          "width": 547,
+          "height": 365,
+          "path": "/static/destinations/hotel_la_falaise-1440.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dst-lhybride-restaurant",
+    "slug": "l_hybride_restaurant",
+    "source_image": "l'hybride_restaurant.jpg",
+    "name": "L'Hybride Restaurant",
+    "category": "food",
+    "lat": 3.8721,
+    "lng": 11.5225,
+    "tags": [
+      "restaurant",
+      "food"
+    ],
+    "description": "A restaurant in Yaounde.",
+    "city": "Yaounde",
+    "country": "Cameroon",
+    "currency": "XAF",
+    "timezone": "Africa/Douala",
+    "image": {
+      "alt": "L'Hybride Restaurant in Yaounde, Cameroon",
+      "primary": "/static/destinations/l_hybride_restaurant-960.webp",
+      "variants": [
+        {
+          "width": 480,
+          "height": 262,
+          "path": "/static/destinations/l_hybride_restaurant-480.webp"
+        },
+        {
+          "width": 960,
+          "height": 524,
+          "path": "/static/destinations/l_hybride_restaurant-960.webp"
+        },
+        {
+          "width": 1100,
+          "height": 600,
+          "path": "/static/destinations/l_hybride_restaurant-1440.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dst-lac-municipal",
+    "slug": "lac_municipal",
+    "source_image": "Lac_Municipal.jpg",
+    "name": "Lac Municipal",
+    "category": "nature",
+    "lat": 3.8592,
+    "lng": 11.5241,
+    "tags": [
+      "lake",
+      "park",
+      "outdoors"
+    ],
+    "description": "A municipal lake and surrounding green space in Yaounde.",
+    "city": "Yaounde",
+    "country": "Cameroon",
+    "currency": "XAF",
+    "timezone": "Africa/Douala",
+    "image": {
+      "alt": "Lac Municipal in Yaounde, Cameroon",
+      "primary": "/static/destinations/lac_municipal-960.webp",
+      "variants": [
+        {
+          "width": 480,
+          "height": 320,
+          "path": "/static/destinations/lac_municipal-480.webp"
+        },
+        {
+          "width": 678,
+          "height": 452,
+          "path": "/static/destinations/lac_municipal-960.webp"
+        },
+        {
+          "width": 678,
+          "height": 452,
+          "path": "/static/destinations/lac_municipal-1440.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dst-le-safoutier",
+    "slug": "le_safoutier",
+    "source_image": "le_safoutier.jpg",
+    "name": "Le Safoutier",
+    "category": "food",
+    "lat": 3.8548,
+    "lng": 11.5019,
+    "tags": [
+      "restaurant",
+      "food"
+    ],
+    "description": "A restaurant in Yaounde, likely serving local cuisine based on the name.",
+    "city": "Yaounde",
+    "country": "Cameroon",
+    "currency": "XAF",
+    "timezone": "Africa/Douala",
+    "image": {
+      "alt": "Le Safoutier in Yaounde, Cameroon",
+      "primary": "/static/destinations/le_safoutier-960.webp",
+      "variants": [
+        {
+          "width": 480,
+          "height": 320,
+          "path": "/static/destinations/le_safoutier-480.webp"
+        },
+        {
+          "width": 960,
+          "height": 639,
+          "path": "/static/destinations/le_safoutier-960.webp"
+        },
+        {
+          "width": 1201,
+          "height": 800,
+          "path": "/static/destinations/le_safoutier-1440.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dst-reunification-monument",
+    "slug": "reunification_monument",
+    "source_image": "reunification_monument.png",
+    "name": "Monument de la Reunification",
+    "category": "heritage",
+    "lat": 3.873,
+    "lng": 11.5158,
+    "tags": [
+      "monument",
+      "landmark",
+      "history"
+    ],
+    "description": "A national monument commemorating the reunification of Cameroon.",
+    "city": "Yaounde",
+    "country": "Cameroon",
+    "currency": "XAF",
+    "timezone": "Africa/Douala",
+    "image": {
+      "alt": "Monument de la Reunification in Yaounde, Cameroon",
+      "primary": "/static/destinations/reunification_monument-960.webp",
+      "variants": [
+        {
+          "width": 480,
+          "height": 360,
+          "path": "/static/destinations/reunification_monument-480.webp"
+        },
+        {
+          "width": 960,
+          "height": 720,
+          "path": "/static/destinations/reunification_monument-960.webp"
+        },
+        {
+          "width": 1440,
+          "height": 1080,
+          "path": "/static/destinations/reunification_monument-1440.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dst-stade-paul-biya",
+    "slug": "stade_paul_biya",
+    "source_image": "Stade_Paul_Biya.jpg",
+    "name": "Stade Paul Biya",
+    "category": "sport",
+    "lat": 3.9436,
+    "lng": 11.4747,
+    "tags": [
+      "stadium",
+      "sport"
+    ],
+    "description": "A stadium near Yaounde (Olembe area). Event schedules and ticketing are not tracked by this app.",
+    "city": "Yaounde",
+    "country": "Cameroon",
+    "currency": "XAF",
+    "timezone": "Africa/Douala",
+    "image": {
+      "alt": "Stade Paul Biya in Yaounde, Cameroon",
+      "primary": "/static/destinations/stade_paul_biya-960.webp",
+      "variants": [
+        {
+          "width": 480,
+          "height": 384,
+          "path": "/static/destinations/stade_paul_biya-480.webp"
+        },
+        {
+          "width": 960,
+          "height": 768,
+          "path": "/static/destinations/stade_paul_biya-960.webp"
+        },
+        {
+          "width": 1402,
+          "height": 1122,
+          "path": "/static/destinations/stade_paul_biya-1440.webp"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dst-statue-charles-atangana",
+    "slug": "statue_de_charles_atangana",
+    "source_image": "statue_de_charles_atangana.jpg",
+    "name": "Statue de Charles Atangana",
+    "category": "heritage",
+    "lat": 3.8675,
+    "lng": 11.5099,
+    "tags": [
+      "statue",
+      "landmark",
+      "history"
+    ],
+    "description": "A statue honoring Charles Atangana in Yaounde.",
+    "city": "Yaounde",
+    "country": "Cameroon",
+    "currency": "XAF",
+    "timezone": "Africa/Douala",
+    "image": {
+      "alt": "Statue de Charles Atangana in Yaounde, Cameroon",
+      "primary": "/static/destinations/statue_de_charles_atangana-480.webp",
+      "variants": [
+        {
+          "width": 387,
+          "height": 516,
+          "path": "/static/destinations/statue_de_charles_atangana-480.webp"
+        },
+        {
+          "width": 387,
+          "height": 516,
+          "path": "/static/destinations/statue_de_charles_atangana-960.webp"
+        },
+        {
+          "width": 387,
+          "height": 516,
+          "path": "/static/destinations/statue_de_charles_atangana-1440.webp"
+        }
+      ]
+    }
+  }
+]
