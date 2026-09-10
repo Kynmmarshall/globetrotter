@@ -21,8 +21,8 @@ services:
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-globetrotter}
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-change-me-in-local-env}
     ports:
-      - "${RABBITMQ_PORT:-5672}:5672"
-      - "${RABBITMQ_MANAGEMENT_PORT:-15672}:15672"
+      - "${RABBITMQ_BIND_HOST:-0.0.0.0}:${RABBITMQ_PORT:-5672}:5672"
+      - "${RABBITMQ_BIND_HOST:-0.0.0.0}:${RABBITMQ_MANAGEMENT_PORT:-15672}:15672"
     healthcheck:
       test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
       interval: 5s
@@ -45,7 +45,7 @@ services:
       JWT_REFRESH_TOKEN_DAYS: ${JWT_REFRESH_TOKEN_DAYS:-30}
       COOKIE_SECURE: ${COOKIE_SECURE:-false}
       COOKIE_DOMAIN: ${COOKIE_DOMAIN:-localhost}
-      CORS_ORIGINS: '["http://localhost:${GATEWAY_PORT:-8090}", "http://localhost:5173"]'
+      CORS_ORIGINS: '${CORS_ORIGINS:-["http://localhost:8090", "http://localhost:5173"]}'
     volumes:
       # Only the User Service actually needs the private key (it signs
       # tokens); mounting the whole folder read-only to all three services
@@ -73,7 +73,7 @@ services:
       JWT_PUBLIC_KEY_PATH: /run/secrets/jwt_public_key.pem
       JWT_ISSUER: ${JWT_ISSUER:-globetrotter-user-service}
       OSRM_BASE_URL: ${OSRM_BASE_URL:-https://router.project-osrm.org}
-      CORS_ORIGINS: '["http://localhost:${GATEWAY_PORT:-8090}", "http://localhost:5173"]'
+      CORS_ORIGINS: '${CORS_ORIGINS:-["http://localhost:8090", "http://localhost:5173"]}'
     volumes:
       - ../infra/keys:/run/secrets:ro
       - recommendation_service_data:/srv/app/data
@@ -98,7 +98,7 @@ services:
       JWT_PUBLIC_KEY_PATH: /run/secrets/jwt_public_key.pem
       JWT_ISSUER: ${JWT_ISSUER:-globetrotter-user-service}
       RECOMMENDATION_SERVICE_BASE_URL: http://recommendation-service:8002
-      CORS_ORIGINS: '["http://localhost:${GATEWAY_PORT:-8090}", "http://localhost:5173"]'
+      CORS_ORIGINS: '${CORS_ORIGINS:-["http://localhost:8090", "http://localhost:5173"]}'
     volumes:
       - ../infra/keys:/run/secrets:ro
       - itinerary_service_data:/srv/app/data
@@ -118,7 +118,7 @@ services:
       context: ../backend/microservice/gateway
     restart: unless-stopped
     ports:
-      - "${GATEWAY_PORT:-8090}:80"
+      - "${GATEWAY_BIND_HOST:-0.0.0.0}:${GATEWAY_PORT:-8090}:80"
     depends_on:
       - user-service
       - recommendation-service
@@ -128,6 +128,7 @@ services:
   frontend:
     build:
       context: ../frontend
+      target: dev
     restart: unless-stopped
     volumes:
       - ../frontend/src:/app/src

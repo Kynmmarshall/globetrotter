@@ -1,0 +1,20 @@
+# Production override for a real host (e.g. a VPS behind a domain + TLS).
+# Layer this on top of compose.microservices.yml:
+#
+#   docker compose --env-file .env \
+#     -f infra/compose.microservices.yml \
+#     -f infra/compose.production.yml \
+#     up -d --build
+#
+# Only change here: the frontend is built as a static bundle and served by
+# nginx, not the Vite dev server (see frontend/Dockerfile's "prod" stage).
+# Docker Compose MERGES (appends to) list fields such as "ports" and
+# "volumes" across -f files rather than replacing them, so binding
+# RabbitMQ/the gateway to 127.0.0.1 is done via the GATEWAY_BIND_HOST /
+# RABBITMQ_BIND_HOST env vars in .env instead of an override here -- see
+# .env.example.
+services:
+  frontend:
+    build:
+      context: ../frontend
+      target: prod
